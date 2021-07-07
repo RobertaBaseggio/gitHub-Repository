@@ -1,4 +1,5 @@
 import React, { useState, FormEvent } from 'react';
+import { FiChevronRight} from 'react-icons/fi';
 import api from '../../services/api';
 import Repository from '../Repository';
 
@@ -23,6 +24,7 @@ const Dashboard: React.FC = () => {
     const repository = response.data;
 
     setRepositories([...repositories, repository]);
+    setNewRepo('');
 
   }
 
@@ -37,19 +39,25 @@ const Dashboard: React.FC = () => {
       </Form>
 
       <Repositories>
-
-        {repositories.map(repository => (
-          <>
-          <img src={repository.owner.avatar_url} alt={repository.owner.login} />
+        <a  href="#">
+          <img src= "https://avatars.githubusercontent.com/u/82897794?v=4" />
           <div>
-            <strong>{repository.full_name}</strong>
-            <p>{repository.description}</p>
+            <strong>logistica</strong>
+            <p>projeto de logistica</p>
           </div>
-          </>
-        ))}
-
+          <FiChevronRight size={20}/>
+        </a>
       </Repositories>
-
+      <Repositories>
+        <a  href="#">
+          <img src= "https://avatars.githubusercontent.com/u/82897794?v=4" />
+          <div>
+            <strong>logistica</strong>
+            <p>projeto de logistica</p>
+          </div>
+          <FiChevronRight size={20}/>
+        </a>
+      </Repositories>
     </>
   )
 };
